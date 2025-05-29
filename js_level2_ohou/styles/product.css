@@ -1,3 +1,6 @@
+body,html {
+    scroll-behavior:smooth;
+}
 main {
     background-color:aqua;
     width:995px; margin:0 auto;
@@ -91,3 +94,10 @@ main section .right_order .btn_group #buy_btn {
     color:#fff;
     margin-left:10px;
 }
+main .info {
+    height:100vh;
+}
+main #review {
+    height:100vh;background-color:yellow;
+}
+main .board {height:100vh;}
