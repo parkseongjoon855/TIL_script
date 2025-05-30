@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 복습 + 블로그</title>
+    <style>
+        #bg {
+            /* 배경이미지 */
+            background:url(https://i.pinimg.com/736x/7f/e0/ca/7fe0caf9b12cf0b57bf85a1545b15334.jpg) no-repeat center;
+            width:100vh; height:100vh;
+        }
+        #bg .gradient {
+            /* 그라디언트 색상 */
+            background: #ed8a00;
+            background: linear-gradient(90deg, rgba(237, 138, 0, 1) 0%, rgba(146, 232, 16, 1) 12%, rgba(93, 198, 140, 1) 30%, rgba(117, 202, 130, 1) 30%, rgba(23, 203, 235, 1) 30%);
+            opacity:0.7 ;/* 자식, 자손 영향 */
+            height:100vh ;
+        }
+        #bg .gradient section {
+            /* a, b 두개의 요소를 grid로 정렬하고 싶다면 그 부모(section)에게 명령 */
+            display:grid;
+            /* grid-template-columns:100px 200px; *//* 1열,2열 순서대로 자식 너비지정 */
+            /* grid-template-columns:repeat(2, minmax(200px, auto)); */
+            grid-template-columns:200px 1fr;
+            /* 1열 2열 반복(repeat)적용 최소(min) 최대(max) auto 100%와 같이 인식한다 */
+            /* grid-template-rows:300px 100px; *//* 1행 300, 2행 100 자식의 높이지정 */
+            grid-template-rows:repeat(2, 100px);/* 2행 100px반복 */
+        }
+        #bg .gradient section > div {
+           /*  width:100px; */ /* height:100px; */
+           /* 부모에 grid로 열,행 크기 입력 시 자식에는 별도로 크기를 입력하면 안된다. */
+            border:5px solid red;
+        }
+        #bg .gradient section .a {}
+        #bg .gradient section .b {}
+        #bg .gradient section > div svg {width:24px;}
+        #bg .gradient section .c {}
+        #bg .gradient section .d {}
+        .box {
+            display:grid;
+            grid-template-areas:
+                'list1 list2 list3'
+                'list4 list5 list6';
+            grid-template-columns:repeat(3, 100px);
+            grid-template-rows:100px 200px;
+            gap:10px 20px;
+        }
+        .box li {
+            border:2px solid #000;
+        }
+        .box li:nth-child(1) {grid-area:list1;}
+        .box li:nth-child(2) {grid-area:list2;}
+        .box li:nth-child(3) {grid-area:list3;}
+        .box li:nth-child(4) {grid-area:list4;}
+        .box li:nth-child(5) {grid-area:list5;}
+        .box li:nth-child(6) {grid-area:list6;}
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div id="bg">
+        <div class="gradient">
+            <section>
+                <div class="a"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></div>
+                <div class="b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M528.1 301.3l47.3-208C578.8 78.3 567.4 64 552 64H159.2l-9.2-44.8C147.8 8 137.9 0 126.5 0H24C10.7 0 0 10.7 0 24v16c0 13.3 10.7 24 24 24h69.9l70.2 343.4C147.3 417.1 136 435.2 136 456c0 30.9 25.1 56 56 56s56-25.1 56-56c0-15.7-6.4-29.8-16.8-40h209.6C430.4 426.2 424 440.3 424 456c0 30.9 25.1 56 56 56s56-25.1 56-56c0-22.2-12.9-41.3-31.6-50.4l5.5-24.3c3.4-15-8-29.3-23.4-29.3H218.1l-6.5-32h293.1c11.2 0 20.9-7.8 23.4-18.7z"/></svg></div>
+                <div class="c"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg></div>
+                <div class="d"></div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
