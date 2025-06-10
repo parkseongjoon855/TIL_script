@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 할일</title>
+    <link rel="stylesheet" href="../task_birthday_flower/styles/reset.css">
+    <script src="./scripts/to_do_list.js" defer></script>
+    <style>
+        main {
+            background-color:pink;
+        }
+        main h1 {}
+        main  ul {}
+        main  ul li {}
+        main ul li span {}
+        main  ul li span .del_btn {}
+        main .input_btn {
+            
+        }
+        main .input_btn .to {
+            border:2px solid red;
+            border-radius:15px;
+        }
+        main .input_btn #to_btn {
+            border:3px solid black;
+            border-radius:15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>오늘의 할일</h1>
+        <ul>
+            <li><span>여기에 할 일이 등록됩니다.</span><button type="button" class="del_btn">x</button></li>
+        </ul>
+        <div class="input_btn">
+            <input type="text" class="to" name="to" placeholder="할일을 입력하세요">
+            <button type="button" id="to_btn">등록</button>
+        </div>
+    </main>
+</body>
+</html>
